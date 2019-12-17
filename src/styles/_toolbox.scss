@@ -1,0 +1,35 @@
+//
+// Mixes the base-font-size with a given view-width ratio
+//
+// $screenWidthRatio: @float [0-1] .1 means 10% of the font size is relative to the browser width
+// $designWidth: @int reference resolution, mostly the width of the sketch / photoshop file or the current breakpoint
+// $targetPXSize: @int PX value at $designWidth
+//
+// @return @string calc that mixes VW with %
+// because we mix it with % it only works for font-sizes
+//
+
+@function screen-ratio-mix($screen-width-ratio: 0.1, // adds 10% of screen-width
+  $design-width: 1440, // the target width (artboard width)
+  $target-px-size: 10 // target size in PX
+
+) {
+  $percent-size: $target-px-size / 16% * 100%;
+  @return calc(#{$percent-size - $percent-size * $screen-width-ratio}% + #{$screen-width-ratio * (100 / $design-width) * 10}vw);
+}
+
+// utilities
+$breakpoints: ('desktop-xl': 'min-width: 1921px',
+  'desktop': 'max-width: 1280px',
+  'tablet': 'max-width: 1024px',
+  'phone': 'max-width: 640px',
+  'phone-xs': 'max-width: 375px'
+);
+
+@mixin viewport($name) {
+  @if map-has-key($breakpoints, $name) {
+    @media (#{map-get($breakpoints, $name)}) {
+      @content;
+    }
+  }
+}
