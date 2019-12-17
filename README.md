@@ -1,2 +1,2 @@
 # primesoft.ch
-primesoft website
+primesoft website: stupefied-curie-958457.netlify.com
