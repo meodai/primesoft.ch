@@ -54,6 +54,12 @@ h1 {
   max-width: 50rem;
   line-height: 1.1;
   margin: 5rem auto 2rem;
+
+  @media screen and (max-width: 812px) {
+    font-size: 4rem;
+    margin-left: 0;
+    margin-bottom: 0;
+  }
 }
 
 mark {
@@ -138,6 +144,12 @@ b {
   max-width: 50rem;
   margin: 5rem auto 2rem;
   flex-wrap: wrap;
+
+  @media screen and (max-width: 812px) {
+    display: block;
+    padding: 2rem;
+    margin-top: 0;
+  }
 }
 
 .window {
@@ -185,11 +197,20 @@ address {
   flex: 0 0 35%;
   width: 35%;
   margin-right: 2rem;
+
+  @media screen and (max-width: 812px) {
+    width: auto;
+    margin-right: 0;
+  }
 }
 
 .people {
   width: calc(65% - 2rem);
   flex: 0 1 calc(65% - 2rem);
+
+  @media screen and (max-width: 812px) {
+    width: auto;
+  }
 
   div+div {
     margin-top: 1.75rem;
